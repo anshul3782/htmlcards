@@ -9,7 +9,6 @@ A dynamic HTML card system that fetches user data from Supabase and displays int
 - **Health Metrics Timeline**: Line charts for heart rate, HRV, and steps over time
 - **Activity Heatmap**: Scatter plots showing daily activity patterns
 - **Emotion Timeline**: Line charts tracking emotional intensity over time
-- **Health Summary**: Key statistics and metrics overview
 
 ## Demo
 
@@ -109,6 +108,16 @@ https://yourusername.github.io/htmlcards/?phone=1234567890
 https://yourusername.github.io/htmlcards/?phone=9876543210
 ```
 
+### Card Selection
+You can control which cards to display using the `cards` parameter:
+
+```
+https://yourusername.github.io/htmlcards/?phone=1&cards=profile,health,location
+https://yourusername.github.io/htmlcards/?phone=1&cards=health,emotion,activity
+```
+
+Available card types: `profile`, `health`, `location`, `emotion`, `activity`
+
 ## Card Types
 
 ### 1. User Profile Card
@@ -136,10 +145,6 @@ https://yourusername.github.io/htmlcards/?phone=9876543210
 - Smooth curves with fill areas
 - Purple color scheme
 
-### 6. Health Summary
-- Grid of key statistics
-- Total steps, average heart rate, average emotion, total calories
-- Clean, card-based layout
 
 ## Responsive Design
 

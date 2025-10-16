@@ -6,6 +6,7 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 let userId = null;
 let userData = {};
 let charts = {};
+let visibleCards = ['profile', 'health', 'location', 'emotion', 'activity']; // Default: show all cards
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -18,8 +19,17 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
+    // Extract card preferences from URL parameters
+    const cardsParam = urlParams.get('cards');
+    if (cardsParam) {
+        visibleCards = cardsParam.split(',').map(card => card.trim());
+    }
+    
     // Update header with phone number
     document.getElementById('userInfo').innerHTML = `Phone Number: ${userId}`;
+    
+    // Apply card visibility settings
+    applyCardVisibility();
     
     // Load all user data
     loadUserData();
@@ -53,7 +63,6 @@ async function loadUserData() {
         renderHealthChart();
         renderActivityChart();
         renderEmotionChart();
-        renderSummaryCard();
         
         hideLoading();
         
@@ -463,44 +472,19 @@ function renderEmotionChart() {
     });
 }
 
-// Render summary card
-function renderSummaryCard() {
-    const summaryContent = document.getElementById('summaryContent');
-    const healthData = userData.health;
-    const emotionData = userData.emotion;
+
+// Apply card visibility based on preferences
+function applyCardVisibility() {
+    const allCards = document.querySelectorAll('[data-card]');
     
-    // Calculate summary statistics
-    const totalSteps = healthData.reduce((sum, item) => sum + (item.steps || 0), 0);
-    const avgHeartRate = healthData.length > 0 ? 
-        healthData.reduce((sum, item) => sum + (item.heart_rate || 0), 0) / healthData.length : 0;
-    const avgEmotion = emotionData.length > 0 ? 
-        emotionData.reduce((sum, item) => sum + (item.intensity || 0), 0) / emotionData.length : 0;
-    const totalCalories = healthData.reduce((sum, item) => sum + (item.calories_burned || 0), 0);
-    
-    const summaryHtml = `
-        <div class="summary-item">
-            <h4>Total Steps</h4>
-            <div class="value">${totalSteps.toLocaleString()}</div>
-            <div class="label">All time</div>
-        </div>
-        <div class="summary-item">
-            <h4>Avg Heart Rate</h4>
-            <div class="value">${Math.round(avgHeartRate)}</div>
-            <div class="label">BPM</div>
-        </div>
-        <div class="summary-item">
-            <h4>Avg Emotion</h4>
-            <div class="value">${avgEmotion.toFixed(2)}</div>
-            <div class="label">Intensity</div>
-        </div>
-        <div class="summary-item">
-            <h4>Total Calories</h4>
-            <div class="value">${totalCalories.toLocaleString()}</div>
-            <div class="label">Burned</div>
-        </div>
-    `;
-    
-    summaryContent.innerHTML = summaryHtml;
+    allCards.forEach(card => {
+        const cardType = card.getAttribute('data-card');
+        if (visibleCards.includes(cardType)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
 }
 
 // Utility functions

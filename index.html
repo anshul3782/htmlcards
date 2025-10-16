@@ -19,7 +19,7 @@
 
         <div class="cards-grid">
             <!-- User Profile Card -->
-            <div class="card profile-card">
+            <div class="card profile-card" data-card="profile">
                 <h2>User Profile</h2>
                 <div class="profile-content" id="profileContent">
                     <div class="loading">Loading profile...</div>
@@ -27,7 +27,7 @@
             </div>
 
             <!-- Location Emotion Card -->
-            <div class="card location-card">
+            <div class="card location-card" data-card="location">
                 <h2>Emotion by Location</h2>
                 <div class="chart-container">
                     <canvas id="locationChart"></canvas>
@@ -35,7 +35,7 @@
             </div>
 
             <!-- Health Metrics Timeline Card -->
-            <div class="card health-card">
+            <div class="card health-card" data-card="health">
                 <h2>Health Metrics Timeline</h2>
                 <div class="chart-container">
                     <canvas id="healthChart"></canvas>
@@ -43,7 +43,7 @@
             </div>
 
             <!-- Activity Heatmap Card -->
-            <div class="card activity-card">
+            <div class="card activity-card" data-card="activity">
                 <h2>Activity Heatmap</h2>
                 <div class="chart-container">
                     <canvas id="activityChart"></canvas>
@@ -51,20 +51,13 @@
             </div>
 
             <!-- Emotion Timeline Card -->
-            <div class="card emotion-card">
+            <div class="card emotion-card" data-card="emotion">
                 <h2>Emotion Timeline</h2>
                 <div class="chart-container">
                     <canvas id="emotionChart"></canvas>
                 </div>
             </div>
 
-            <!-- Health Summary Card -->
-            <div class="card summary-card">
-                <h2>Health Summary</h2>
-                <div class="summary-content" id="summaryContent">
-                    <div class="loading">Loading summary...</div>
-                </div>
-            </div>
         </div>
 
         <div class="error-message" id="errorMessage" style="display: none;">
