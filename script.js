@@ -9,17 +9,17 @@ let charts = {};
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
-    // Extract user ID from URL parameters
+    // Extract user phone number from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    userId = urlParams.get('id');
+    userId = urlParams.get('phone');
     
     if (!userId) {
-        showError('No user ID provided. Please add ?id=USER_NUMBER to the URL.');
+        showError('No phone number provided. Please add ?phone=PHONE_NUMBER to the URL.');
         return;
     }
     
-    // Update header with user ID
-    document.getElementById('userInfo').innerHTML = `User ID: ${userId}`;
+    // Update header with phone number
+    document.getElementById('userInfo').innerHTML = `Phone Number: ${userId}`;
     
     // Load all user data
     loadUserData();

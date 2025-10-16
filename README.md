@@ -13,9 +13,9 @@ A dynamic HTML card system that fetches user data from Supabase and displays int
 
 ## Demo
 
-Visit: `https://username.github.io/htmlcards/?id=USER_NUMBER`
+Visit: `https://username.github.io/htmlcards/?phone=PHONE_NUMBER`
 
-Replace `USER_NUMBER` with a valid phone number from your Supabase database.
+Replace `PHONE_NUMBER` with a valid phone number from your Supabase database.
 
 ## Setup Instructions
 
@@ -48,7 +48,7 @@ Copy all the files from this project to your repository:
 
 Your cards will be available at:
 ```
-https://yourusername.github.io/htmlcards/?id=USER_NUMBER
+https://yourusername.github.io/htmlcards/?phone=PHONE_NUMBER
 ```
 
 ## Database Schema
@@ -100,13 +100,13 @@ The system is pre-configured with your Supabase credentials:
 
 ### Basic Usage
 1. Open your GitHub Pages URL
-2. Add `?id=PHONE_NUMBER` to the end
+2. Add `?phone=PHONE_NUMBER` to the end
 3. Replace `PHONE_NUMBER` with a valid user's phone number
 
 ### Example URLs
 ```
-https://yourusername.github.io/htmlcards/?id=1234567890
-https://yourusername.github.io/htmlcards/?id=9876543210
+https://yourusername.github.io/htmlcards/?phone=1234567890
+https://yourusername.github.io/htmlcards/?phone=9876543210
 ```
 
 ## Card Types
@@ -211,7 +211,7 @@ The system includes comprehensive error handling:
 - Uses Supabase anon key (read-only access)
 - No sensitive data stored in client-side code
 - CORS properly configured for Supabase
-- Input validation for user IDs
+- Input validation for phone numbers
 
 ## Contributing
 
