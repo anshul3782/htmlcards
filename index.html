@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Health & Location Cards</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>User Health & Location Dashboard</h1>
+            <div class="user-info" id="userInfo">
+                <div class="loading">Loading user data...</div>
+            </div>
+        </header>
+
+        <div class="cards-grid">
+            <!-- User Profile Card -->
+            <div class="card profile-card">
+                <h2>User Profile</h2>
+                <div class="profile-content" id="profileContent">
+                    <div class="loading">Loading profile...</div>
+                </div>
+            </div>
+
+            <!-- Location Emotion Card -->
+            <div class="card location-card">
+                <h2>Emotion by Location</h2>
+                <div class="chart-container">
+                    <canvas id="locationChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Health Metrics Timeline Card -->
+            <div class="card health-card">
+                <h2>Health Metrics Timeline</h2>
+                <div class="chart-container">
+                    <canvas id="healthChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Activity Heatmap Card -->
+            <div class="card activity-card">
+                <h2>Activity Heatmap</h2>
+                <div class="chart-container">
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Emotion Timeline Card -->
+            <div class="card emotion-card">
+                <h2>Emotion Timeline</h2>
+                <div class="chart-container">
+                    <canvas id="emotionChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Health Summary Card -->
+            <div class="card summary-card">
+                <h2>Health Summary</h2>
+                <div class="summary-content" id="summaryContent">
+                    <div class="loading">Loading summary...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <h3>Error Loading Data</h3>
+            <p id="errorText"></p>
+            <button onclick="location.reload()">Retry</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
